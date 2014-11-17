@@ -1,8 +1,11 @@
 {
-    "name": "ng-module-filter",
-    "version": "0.0.0",
-    "private": true,
-    "dependencies": {
-        "through2": "~0.6.3"
-    }
+  "name": "ng-module-filter",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "through2": "~0.6.3"
+  },
+  "devDependencies": {
+    "mocha": "^2.0.1"
+  }
 }
