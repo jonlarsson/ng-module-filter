@@ -1,5 +1,5 @@
 var through = require('through2');
-var extractModuleInfo = require("./extractModuleInfo");
+var moduleInfoParser = require("./moduleInfoParser")
 var FileDependenciesTracker = require("./FileDependenciesTracker");
 var path = require('path');
 
@@ -8,10 +8,9 @@ module.exports = function (options) {
     var files = [];
 
     var stream = through.obj(function (file, enc, cb) {
-        var moduleDep = extractModuleInfo(file.contents);
-        if (moduleDep) {
+        moduleInfoParser(file.contents.toString()).forEach(function (moduleDep) {
             tracker.register(moduleDep.name, path.dirname(file.path), moduleDep.dependencies);
-        }
+        });
         files.push(file);
         cb();
     }, function (cb) {

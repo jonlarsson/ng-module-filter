@@ -1,0 +1,1 @@
+angular.module("foo.one").value("Foo One")
