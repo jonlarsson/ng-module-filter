@@ -5,7 +5,6 @@ function moduleInfoParser(source) {
     var argumentSplitRegExp = /,/;
 
     var moduleDefs = source.match(declaringCallRegExp) || [];
-    console.log(moduleDefs)
 
     return moduleDefs.map(function (moduleDef) {
         var infoMatch = moduleDef.match(infoParseRegExp);
