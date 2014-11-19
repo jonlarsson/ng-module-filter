@@ -1,9 +1,11 @@
 function moduleInfoParser(source) {
-    var declaringCallRegExp = /angular\s*\.\s*module\s*\(\s*.+,\s*\[.*]\s*\)/g;
-    var infoParseRegExp = /\(\s*(.+),\s*\[(.*)]\s*\)/;
-    var argumentSplitRegExp = /\s*,\s*/;
+    source = source.replace(/\s/g, "");
+    var declaringCallRegExp = /angular\.module\([^)]+?,\[[^)]*?]\)/g;
+    var infoParseRegExp = /\(([^)]+?),\[([^)]*?)]\)/;
+    var argumentSplitRegExp = /,/;
 
     var moduleDefs = source.match(declaringCallRegExp) || [];
+    console.log(moduleDefs)
 
     return moduleDefs.map(function (moduleDef) {
         var infoMatch = moduleDef.match(infoParseRegExp);
@@ -14,8 +16,8 @@ function moduleInfoParser(source) {
                 return argument;
             }).
             map(function (argument) {
-            return argument.replace(/['"]/g, "");
-        });
+                return argument.replace(/['"]/g, "");
+            });
 
         return {
             name: name,

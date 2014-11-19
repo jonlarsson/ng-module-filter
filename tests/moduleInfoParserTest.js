@@ -45,4 +45,17 @@ describe("extractModuleInfo", function () {
             }
         ]);
     });
+
+    it("should extract module with line breaks", function () {
+        var source = 'angular.module("mod", [\n     "dep1",\n    "dep2"])';
+        assert.deepEqual(moduleInfoParser(source), [
+            {
+                name: "mod",
+                dependencies: [
+                    "dep1",
+                    "dep2"
+                ]
+            }
+        ]);
+    });
 });
