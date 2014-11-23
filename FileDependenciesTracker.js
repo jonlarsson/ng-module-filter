@@ -13,7 +13,7 @@ FileDependenciesTracker.prototype.directoryIsRequiredByModule = function (module
         return false;
     }
     if (!moduleDep) {
-        return false;
+        return true;
     } else if (moduleDep.directory === dir) {
         return true;
     } else {
