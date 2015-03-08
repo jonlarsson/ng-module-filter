@@ -16,7 +16,11 @@ module.exports = function (options) {
     }, function (cb) {
         files.
             filter(function (file) {
-                return tracker.fileIsRequired(file.path);
+                var fileIsRequired = tracker.fileIsRequired(file.path);
+                if (!fileIsRequired) {
+                    console.log(file.path + " is not required for " + options.appModule);
+                }
+                return fileIsRequired;
             }).
             forEach(function (file) {
                 stream.push(file);

@@ -13,7 +13,8 @@ FileDependenciesTracker.prototype.directoryIsRequiredByModule = function (module
         return false;
     }
     if (!moduleDep) {
-        return true;
+        // this is an unknown module, ngSanitze for example
+        return false;
     } else if (moduleDep.directory === dir) {
         return true;
     } else {
