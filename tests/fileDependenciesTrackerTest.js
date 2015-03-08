@@ -28,6 +28,7 @@ describe("FileDependenciesTracker", function () {
 
     it("should not require a file in a non dependency modules directory", function () {
         tracker.register("appmodule", "d1", ["depmodule"]);
+        tracker.register("depmodule", "d3", []);
         tracker.register("nondepmodule", "d2", []);
         assert.equal(tracker.fileIsRequired("d2/f1.js"), false);
     });
