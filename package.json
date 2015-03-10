@@ -1,11 +1,12 @@
 {
     "name": "gulp-ng-module-filter",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "private": false,
     "main": "./ngModuleFilter",
     "dependencies": {
         "through2": "~0.6.3"
     },
+    "license": "MIT",
     "devDependencies": {
         "mocha": "^2.2.0"
     }
