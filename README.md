@@ -2,9 +2,11 @@
 gulp-ng-module-filter scans the dependencies of your main angular module and removes files from the stream that are not
 located in directories that can be tied to any dependency.
 
-The purpose of this plugin is to remove files in unused modules before concatenation. This way it is possible to build different applications from one codebase of angular modules.
+The purpose of this plugin is to remove files in unused modules before concatenation. This way it is possible to build
+different applications from one codebase of angular modules.
 
-The prerequisite is that all files that are needed by a module are located in the same directory or a subdirectory where the module definition is located.
+The prerequisite is that all files that are needed by a module are located in the same directory or a subdirectory where
+the module definition is located.
 
 ## Usage
 ```shell
